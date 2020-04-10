@@ -3,11 +3,11 @@ package elevators;
 import static source.Floor.toIndex;
 import static source.Floor.toFloor;
 
-import com.oocourse.TimableOutput;
 import datacenter.ControllerToElevator;
 import source.ElevatorStopType;
 import source.PersonInfo;
 import source.FloorInfElevator;
+import source.SafeOutput;
 
 import java.util.ArrayList;
 
@@ -63,7 +63,7 @@ public class Elevator extends Thread {
 
     // Arrive at floor num when aiming to get to floor aim
     private void arriveAt(int num, int aim) throws InterruptedException {
-        TimableOutput.println("ARRIVE-" + toFloor[num] + "-" + this.id);
+        SafeOutput.println("ARRIVE-" + toFloor[num] + "-" + this.id);
         cte.updateHeatMap(inside.getNumIn(), num);
         if (!stopType[num]) {
             return;
@@ -77,11 +77,11 @@ public class Elevator extends Thread {
 
     // Open Door at floor num when aiming to get to floor aim
     private void openDoor(int num, int aim) throws InterruptedException {
-        TimableOutput.println("OPEN-" + toFloor[num] + "-" + this.id);
+        SafeOutput.println("OPEN-" + toFloor[num] + "-" + this.id);
         inside.getOffElevator(num);
         sleep(400);
         getIn(num, aim);
-        TimableOutput.println("CLOSE-" + toFloor[num] + "-" + this.id);
+        SafeOutput.println("CLOSE-" + toFloor[num] + "-" + this.id);
     }
 
     /* Get a floor the elevator will go to

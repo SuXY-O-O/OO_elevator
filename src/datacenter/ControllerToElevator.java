@@ -1,6 +1,5 @@
 package datacenter;
 
-
 import source.PersonInfo;
 import source.Compatibility;
 import source.FloorInfWaiting;

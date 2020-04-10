@@ -14,9 +14,11 @@ public class ListenerToController {
     // Add a person request from listener
     public synchronized void add(PersonInfo p, boolean isTurn) {
         if (isTurn) {
+            // if a person is turning an elevator to another, serve it first
             waiting.add(0, p);
             turnList.remove(p);
         } else if (!checkThree(p)) {
+            // for a newly come person, separate it's request
             boolean action = p.getAction();
             if (action) {
                 operateUp(p);
@@ -168,7 +170,7 @@ public class ListenerToController {
     }
 
     // Set when the input is end
-    public synchronized void setNoNewRequest() {
+    public synchronized void setCanStop() {
         this.canStop = true;
         notifyAll();
     }

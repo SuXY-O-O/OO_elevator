@@ -1,6 +1,5 @@
 package source;
 
-import com.oocourse.TimableOutput;
 import com.oocourse.elevator3.PersonRequest;
 import datacenter.ListenerToController;
 
@@ -57,11 +56,11 @@ public class PersonInfo {
     }
 
     public void getIn(String elevatorId) {
-        TimableOutput.println("IN-" + this.id + "-" + this.from + "-" + elevatorId);
+        SafeOutput.println("IN-" + this.id + "-" + this.from + "-" + elevatorId);
     }
 
     public void getOff(String elevatorId) {
-        TimableOutput.println("OUT-" + this.id + "-" +
+        SafeOutput.println("OUT-" + this.id + "-" +
                 this.destination + "-" + elevatorId);
         if (next != null) {
             ltc.add(next, true);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class FloorInfElevator {
     // Person whose destination is this floor
-    private ArrayList<ArrayList<PersonInfo>> list = new ArrayList<>(19);
+    private ArrayList<ArrayList<PersonInfo>> list = new ArrayList<>(23);
     private int numIn = 0;
     private int max;
     private final String id;
@@ -23,7 +23,7 @@ public class FloorInfElevator {
     else return floor num
      */
     public int getDestination() {
-        for (int i = 0; i < 19; i++) {
+        for (int i = 0; i < 23; i++) {
             if (!list.get(i).isEmpty()) {
                 return i;
             }
