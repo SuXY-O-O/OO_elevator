@@ -14,6 +14,7 @@ public class Listener {
         TimableOutput.initStartTimestamp();
         ElevatorInput elevatorInput = new ElevatorInput(System.in);
         ListenerToController ltc = new ListenerToController();
+        PersonInfo.setLtc(ltc);
         Controller controller = new Controller(ltc);
         controller.addElevator("A", "A");
         controller.addElevator("B", "B");
@@ -42,5 +43,6 @@ public class Listener {
             }
         }
         elevatorInput.close();
+        ltc.setCanStop();
     }
 }

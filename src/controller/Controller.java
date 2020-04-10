@@ -28,7 +28,7 @@ public class Controller extends Thread {
         Elevator eleTmp = new Elevator(cteTmp, id, type);
         synchronized (elevators) {
             elevators.add(eleTmp);
-            notifyAll();
+            elevators.notifyAll();
         }
     }
 
@@ -45,7 +45,7 @@ public class Controller extends Thread {
                     }
                     elevators.clear();
                 }
-                notifyAll();
+                elevators.notifyAll();
             }
             // Get Compatibility if an elevator can serve the person
             int i = 0;

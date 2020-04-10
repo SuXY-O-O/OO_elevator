@@ -138,22 +138,22 @@ public class HeatMap {
         int tmpAt;
         int tmpFrom;
         if (eaction == -1) {
-            tmpAt = 36 - this.at;
+            tmpAt = 44 - this.at;
         }
         else {
             tmpAt = this.at - 1;
         }
         if (!paction) {
-            tmpFrom = 36 - from;
+            tmpFrom = 44 - from;
         }
         else {
             tmpFrom = from - 1;
         }
         int tmp = tmpFrom - tmpAt;
-        if (tmp == 36 || tmp == -36) {
+        if (tmp == 44 || tmp == -44) {
             tmp = 0;
         } else if (tmp < 0) {
-            tmp += 36;
+            tmp += 44;
         }
         return tmp * speedRate;
     }

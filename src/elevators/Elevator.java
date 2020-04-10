@@ -64,22 +64,26 @@ public class Elevator extends Thread {
     // Arrive at floor num when aiming to get to floor aim
     private void arriveAt(int num, int aim) throws InterruptedException {
         SafeOutput.println("ARRIVE-" + toFloor[num] + "-" + this.id);
-        cte.updateHeatMap(inside.getNumIn(), num);
         if (!stopType[num]) {
+            cte.updateHeatMap(inside.getNumIn(), num);
             return;
         }
         if (inside.haveArrival(num) || cte.haveWaiting(num, eaction)) {
             if (inside.freeSpace() > 0) {
                 openDoor(num, aim);
+                return;
             }
         }
+        cte.updateHeatMap(inside.getNumIn(), num);
     }
 
     // Open Door at floor num when aiming to get to floor aim
     private void openDoor(int num, int aim) throws InterruptedException {
         SafeOutput.println("OPEN-" + toFloor[num] + "-" + this.id);
+        int preIn = inside.getNumIn();
         inside.getOffElevator(num);
         sleep(400);
+        cte.updateHeatMap(preIn, num);
         getIn(num, aim);
         SafeOutput.println("CLOSE-" + toFloor[num] + "-" + this.id);
     }

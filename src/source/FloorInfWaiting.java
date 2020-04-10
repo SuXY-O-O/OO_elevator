@@ -5,11 +5,6 @@ import java.util.ArrayList;
 public class FloorInfWaiting {
     private ArrayList<PersonInfo> upList = new ArrayList<>();
     private ArrayList<PersonInfo> downList = new ArrayList<>();
-    /* status
-    false : no person waiting,
-    true : person waiting up
-     */
-    private boolean status = false;
 
     // Add a new person
     public void addPerson(PersonInfo p) {
@@ -18,12 +13,6 @@ public class FloorInfWaiting {
         } else {
             upList.add(p);
         }
-        status = true;
-    }
-
-    // If someone waiting or not
-    public boolean haveWaiting() {
-        return status;
     }
 
     // If someone waiting up or not
@@ -62,9 +51,6 @@ public class FloorInfWaiting {
         } else {
             tmp.addAll(list.subList(0, num));
             list.subList(0, num).clear();
-        }
-        if (upList.isEmpty() && downList.isEmpty()) {
-            status = false;
         }
         return tmp;
     }
