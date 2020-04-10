@@ -10,7 +10,7 @@ public class PersonInfo {
     private boolean action;  // Upstairs : true; Downstairs : false
     private int id;
     private PersonInfo next;
-    protected static ListenerToController ltc;
+    private static ListenerToController ltc;
 
     public PersonInfo(PersonRequest p) {
         this.destination = p.getToFloor();
