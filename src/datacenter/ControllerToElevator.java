@@ -155,7 +155,7 @@ public class ControllerToElevator {
     return -1 when no one goes down
      */
     private int getHighestDown() {
-        for (int i = 18; i >= 0; i--) {
+        for (int i = 22; i >= 0; i--) {
             if (floors[i].haveWaitingDown()) {
                 return i;
             }
@@ -167,7 +167,7 @@ public class ControllerToElevator {
     return -1 when no one goes down
      */
     private int getLowestUp() {
-        for (int i = 0; i < 19; i++) {
+        for (int i = 0; i < 23; i++) {
             if (floors[i].haveWaitingUp()) {
                 return i;
             }

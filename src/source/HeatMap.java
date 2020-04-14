@@ -70,7 +70,7 @@ public class HeatMap {
     public void updateMap(int newAt, int num) {
         if (newAt > this.at) {
             upHeat[this.at] -= num;
-        } else {
+        } else if (newAt < this.at) {
             downHeat[newAt] -= num;
         }
         this.at = newAt;
