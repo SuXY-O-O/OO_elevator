@@ -1,5 +1,6 @@
 # OO_elevator
 The elevator homework of OOP; Following is the origin guide book of the homework.
+And here is a reviewing blog of the homework : https://www.cnblogs.com/Suxy-99/p/12939472.html
 
 # 面向对象电梯系列第三次指导书
 
